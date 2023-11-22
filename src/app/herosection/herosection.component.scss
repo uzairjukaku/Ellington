@@ -1,0 +1,33 @@
+.imageoverlay{
+
+    background-image: linear-gradient(to bottom, rgb(59, 146, 189,0.7), rgba(255,255,255,1));
+    // background-image: linear-gradient(to bottom,  rgba(255,255,255,1),rgb(59, 146, 189,0.7));
+    // background-image: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,1));
+    }
+    
+    
+    .btn-download{
+    
+        background:rgba(0, 174, 230, 0.35);
+        border: 1px solid white;
+        @apply shadow-md;
+    
+    }
+    
+ 
+    
+      @keyframes moveObject {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(30px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      .object {
+        animation: moveObject 2s linear infinite;
+      }

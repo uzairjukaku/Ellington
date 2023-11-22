@@ -1,0 +1,131 @@
+
+
+<app-herosection></app-herosection>
+
+<app-aboutsection> </app-aboutsection>
+
+<section class="h-96 bg-fixed bg-center bg-cover w-full custom-img"></section>
+
+<section class="container mx-auto py-10 ">
+    
+    <h2 class="md:text-6xl text-4xl my-10  text-center">
+      Project Gallery <br />
+    
+    </h2>
+  
+    <div class="keen-slider" #sliderRef>
+        <div class="keen-slider__slide number-slide1"><img src="../assets/sliderimage/Ellington House_Apartment_Bedroom.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide2"><img src="../assets/sliderimage/Ellington House_Apartment_Kitchen.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide3"><img src="../assets/sliderimage/Ellington House_Apartment_Living Room.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide4"><img src="../assets/sliderimage/Ellington House_Club house_View 2.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide5"><img src="../assets/sliderimage/Ellington House_Clubhouse_View 1.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide6"><img src="../assets/sliderimage/Ellington House_Fitness Studio.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide7"><img src="../assets/sliderimage/Ellington House_Lobby.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide8"><img src="../assets/sliderimage/Exterior - Balcony.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide9"><img src="../assets/sliderimage/Exterior.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide610"><img src="../assets/sliderimage/Pool.jpg" alt="" srcset=""></div>
+      </div>
+      <div class="keen-slider thumbnail" #thumbnailRef>
+        <div class="keen-slider__slide number-slide1"><img src="../assets/sliderimage/Ellington House_Apartment_Bedroom.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide2"><img src="../assets/sliderimage/Ellington House_Apartment_Kitchen.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide3"><img src="../assets/sliderimage/Ellington House_Apartment_Living Room.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide4"><img src="../assets/sliderimage/Ellington House_Club house_View 2.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide5"><img src="../assets/sliderimage/Ellington House_Clubhouse_View 1.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide6"><img src="../assets/sliderimage/Ellington House_Fitness Studio.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide7"><img src="../assets/sliderimage/Ellington House_Lobby.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide8"><img src="../assets/sliderimage/Exterior - Balcony.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide9"><img src="../assets/sliderimage/Exterior.jpg" alt="" srcset=""></div>
+        <div class="keen-slider__slide number-slide610"><img src="../assets/sliderimage/Pool.jpg" alt="" srcset=""></div>
+      </div>
+  </section>
+<app-amenites>
+
+</app-amenites>
+
+
+
+
+
+
+
+
+
+
+  
+
+<div class="md:hidden  h-12 w-full bg-white shadow-inner z-10 fixed bottom-0 left-0 grid grid-cols-2">
+
+<button (click)="whatsapplink()" class="col1 btn-download flex items-center justify-center gap-1"> <span nz-icon nzType="whats-app" nzTheme="outline"></span>Chat with us</button>
+<button (click)="showModal()" class="col2 btn-download flex items-center justify-center gap-1"><span nz-icon nzType="audit" nzTheme="outline"></span>Enquire Now</button>
+
+
+</div>
+
+
+<nz-modal
+[(nzVisible)]="isVisible"
+[nzTitle]="modalTitle"
+[nzContent]="modalContent"
+[nzFooter]="modalFooter"
+(nzOnCancel)="handleCancel()"
+>
+<ng-template #modalTitle>Enquire Now</ng-template>
+
+<ng-template #modalContent>
+    <form nz-form [formGroup]="validateForm" >
+        <nz-form-item>
+            <nz-form-label
+              [nzSm]="6"
+              [nzXs]="24"
+              nzFor="NAME"
+              nzRequired
+              nzTooltipTitle="What do you want other to call you"
+            >
+              <span>NAME</span>
+            </nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your Name!">
+              <input nz-input id="nickname" formControlName="name" />
+            </nz-form-control>
+          </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="email" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+      
+   
+     
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
+          <nz-form-control
+            [nzSm]="14"
+            [nzXs]="24"
+            [nzValidateStatus]="validateForm.controls['phoneNumber']"
+            nzErrorTip="Please input your phone number!"
+          >
+            <nz-input-group >
+           
+                <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+                  <nz-option nzLabel="+971" nzValue="+971"></nz-option>
+                  <nz-option nzLabel="+972" nzValue="+972"></nz-option>
+                </nz-select>
+              
+              <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+    
+      
+     
+   </form>
+</ng-template>
+
+<ng-template #modalFooter>
+
+  <button nz-button class="btn-download hover:text-white  text-white" (click)="handleCancel()">Cancle</button>
+  <button nz-button class="btn-download hover:text-white text-white" (click)="handleOk()" >Submit</button>
+</ng-template>
+</nz-modal>
+
+

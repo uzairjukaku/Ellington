@@ -1,0 +1,149 @@
+<section class="min-h-[600px] xl:h-screen relative">
+    <img
+      src="../assets/Pool.jpg "
+      class="absolute top-0 left-0 z-0 h-screen w-full object-cover"
+      alt=""
+      srcset=""
+    />
+  
+    <div class="imageoverlay absolute top-0 left-0 z-0 h-screen w-full"></div>
+  
+    <img
+      src="../assets/arrowdown.svg"
+      class="md:block hidden z-[1] absolute bottom-36 left-1/2 object"
+      alt=""
+      srcset=""
+    />
+  
+    <div
+      class="container relative z-[1] mx-auto pt-10 md:gap-10 gap-10 flex flex-col lg:grid xl:grid-cols-[1fr_300px]"
+    >
+      <div class="col1 flex flex-col gap-10 mx-10 md:items-start items-center">
+        <div class="logo">
+          <img src="../assets/logo.png" class="w-36 h-20" alt="" srcset="" />
+        </div>
+        <h2 class="md:text-6xl text-center md:text-justify text-4xl mt-10">
+          Ellington House, <br />
+          For those who dream <br />
+          of elevated living.
+        </h2>
+  
+        <p class="text-base base-font text-center md:text-justify">
+          A concept that feels in the clouds, <br />
+          Apartments starting from AED 900,828
+        </p>
+  
+        <button (click)="whatsapplink()"
+          class="btn-download w-max px-10 py-3 text-white text-2xl md:text-4xl rounded-full"
+        >
+          Download Brochure
+        </button>
+      </div>
+  
+      <div
+        class="col2 flex mx-10 justify-between gap-6 items-center flex-col-reverse md:flex-row-reverse xl:flex-col gap-10"
+      >
+        <button (click)="showModal()"
+          class="btn-download w-max px-10 h-12 py-3 text-white rounded-full"
+        >
+          Call US
+        </button>
+  
+        <div class="flex flex-col gap-10 xl:flex-col">
+          <div class="featured-price-container">
+            <p class="text-2xl text-center">AED 2,600,000</p>
+            <p class="base-font text-sm text-center">
+              Starting price for the townhouse
+            </p>
+          </div>
+          <div class="featured-price-container">
+            <p class="text-2xl text-center">AED 15,000,000</p>
+            <p class="base-font text-sm text-center">Starting price for Villas</p>
+          </div>
+        </div>
+  
+        <div class="videocontainer flex flex-col gap-4 items-center">
+          <img
+            src="../assets/Exterior.jpg"
+            class="h-[120px] w-[120px] rounded-full"
+            alt=""
+            srcset=""
+          />
+          <p class="text-2xl">WATCH VIDEO</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  
+<nz-modal
+[(nzVisible)]="isVisible"
+[nzTitle]="modalTitle"
+[nzContent]="modalContent"
+[nzFooter]="modalFooter"
+(nzOnCancel)="handleCancel()"
+>
+<ng-template #modalTitle>Enquire Now</ng-template>
+
+<ng-template #modalContent>
+    <form nz-form [formGroup]="validateForm" >
+        <nz-form-item>
+            <nz-form-label
+              [nzSm]="6"
+              [nzXs]="24"
+              nzFor="NAME"
+              nzRequired
+              nzTooltipTitle="What do you want other to call you"
+            >
+              <span>NAME</span>
+            </nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your Name!">
+              <input nz-input id="nickname" formControlName="name" />
+            </nz-form-control>
+          </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="email" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+      
+   
+     
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
+          <nz-form-control
+            [nzSm]="14"
+            [nzXs]="24"
+            [nzValidateStatus]="validateForm.controls['phoneNumber']"
+            nzErrorTip="Please input your phone number!"
+          >
+            <nz-input-group >
+           
+                <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+                  <nz-option nzLabel="+971" nzValue="+971"></nz-option>
+                  <nz-option nzLabel="+972" nzValue="+972"></nz-option>
+                </nz-select>
+              
+              <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+    
+      
+     
+   </form>
+</ng-template>
+
+<ng-template #modalFooter>
+
+  <button nz-button class="btn-download hover:text-white  text-white" (click)="handleCancel()">Cancle</button>
+  <button nz-button class="btn-download hover:text-white text-white" (click)="handleOk()" >Submit</button>
+</ng-template>
+</nz-modal>
+
+
+
+
+
